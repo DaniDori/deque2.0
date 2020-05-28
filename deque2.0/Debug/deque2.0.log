@@ -1,0 +1,8 @@
+﻿  deck.cpp
+C:\Users\DaniDori\source\repos\deque2.0\deque2.0\deck.cpp(3,1): error C2011: deck: переопределение типа "class"
+C:\Users\DaniDori\source\repos\deque2.0\deque2.0\deck.h(5): message : см. объявление "deck"
+C:\Users\DaniDori\source\repos\deque2.0\deque2.0\deck.cpp(7,12): warning C4129: S: неизвестная escape-последовательность
+C:\Users\DaniDori\source\repos\deque2.0\deque2.0\deck.cpp(28,12): warning C4129: S: неизвестная escape-последовательность
+  main.cpp
+C:\Users\DaniDori\source\repos\deque2.0\deque2.0\main.cpp(45,12): error C3867: "deck::clear": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+  Создание кода...
