@@ -8,7 +8,7 @@ int main() {
 	while (n) {
 		{
 			cout << "1 - to push back\n2 - to push front\n3 - to pop back\n4 - to pop front";
-			cout << "\n5 - to see size of deque\n6 - to clear deque\n7 - to print deque0 - to end work\n";
+			cout << "\n5 - to see size of deque\n6 - to clear deque\n7 - to print deque\n0 - to end work\n";
 
 			if (!(cin >> n)) {
 

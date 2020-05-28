@@ -8,6 +8,7 @@ using namespace std;
 class deck
 {
 public:
+	deck();
 	void push_front(int n);//добавить спереди
 	void push_back(int n);//добавить сзади
 	int pop_front();//забрать спереди
@@ -16,7 +17,7 @@ public:
 	void clear();//очистить дек(переместить указатели на начало работы
 	void print();//печать дека с лево на право
 private:
+	int start, end, _size;
 	int storage[SIZE];
-	int _size = 0, start = 0, end = 0;
 };
 

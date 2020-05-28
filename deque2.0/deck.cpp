@@ -2,22 +2,32 @@
 //Дорофеев ИВТ-13
 //Лабораторная работа №3
 //Реализация дека и методов работы с ним при помощи статического массива.
+
+//конструктор по умолчанию
+deck::deck() {
+	_size = 0;
+	start = 0; 
+	end = 0;
+}
 void deck::push_front(int n) {
 	if (_size == SIZE) { 
 		cout << "Deck is full\n"; 
 	}
 	else
-		if (!_size) {//когда размер = 0
+		//когда размер = 0
+		if (!_size) {
 			storage[start] = n;
 			_size++;
 		}
 		else
-			if (!start) {//добавление второго элемента
+			//добавление второго элемента
+			if (!start) {
 			start = SIZE - 1;
 			storage[start] = n;
 			_size++;
 			}
-			else {//добавление каждого следующего
+			//добавление каждого следующего
+			else {
 				start--;
 				storage[start] = n;
 				_size++;
@@ -28,17 +38,20 @@ void deck::push_back(int n) {
 		cout << "Deck is full\n";
 	}
 	else
-		if (!_size) {//добавление первого элемента
+		//добавление первого элемента
+		if (!_size) {
 			storage[end] = n;
 			_size++;
 		}
 		else
-			if (end==SIZE-1) {//добавление второго элемента
+			//добавление второго элемента
+			if (end==SIZE-1) {
 				end = 0;
 				storage[end] = n;
 				_size++;
 			}
-			else {//добавление каждого следующего 
+			//добавление каждого следующего 
+			else {
 				end++;
 				storage[end] = n;
 				_size++;
@@ -46,23 +59,27 @@ void deck::push_back(int n) {
 }
 int deck::pop_front() {
 	int b;
-	if ((_size != 0) && (start == end)) {//когда есть только один элемент
+	//когда есть только один элемент
+	if ((_size != 0) && (start == end)) {
 		b = storage[start];
 		_size--;
 		return b; 
 	}
 	else
-		if (_size == 0) { //если дек пуст
+		//если дек пуст
+		if (_size == 0) { 
 			return -1;
 		}
 		else
 		{
 			b = storage[start];
-			if (start == SIZE - 1) { //если указатель на начало не может двигаться вперед
+			//если указатель на начало не может двигаться вперед
+			if (start == SIZE - 1) { 
 				start = 0;
 				_size--;
 			}
-			else {//нормальный случай
+			//нормальный случай
+			else {
 				start++;
 				_size--;
 			}
@@ -71,23 +88,27 @@ int deck::pop_front() {
 }
 int deck::pop_back() {
 	int b;
-	if (_size != 0 && (start == end)) {//если только один элемент
+	//если только один элемент
+	if (_size != 0 && (start == end)) {
 		b = storage[end];
 		_size--;
 		return b;
 	}
 	else
-		if (_size == 0) {//если дек пуст
+		//если дек пуст
+		if (_size == 0) {
 			return -1;
 		}
 		else
 		{
 			b = storage[end];
-			if (end == 0) {//если нельзя двигать указатель конца влево
+			//если нельзя двигать указатель конца влево
+			if (end == 0) {
 				end = SIZE - 1;
 				_size--;
 			}
-			else {//нормальный случай
+			//нормальный случай
+			else {
 				end--;
 				_size--;
 			}
@@ -97,7 +118,8 @@ int deck::pop_back() {
 int deck::size() {
 	return _size;
 }
-void deck::clear() {//приведение указателей в начальное положение без очистки памяти
+//приведение указателей в начальное положение без очистки памяти
+void deck::clear() {
 	start = end = 0;
 	_size = 0;
 }
@@ -106,16 +128,20 @@ void deck::print() {
 		cout << "deque is empty\n";
 	}
 	cout << "data:\n";
-	if (start <= end) {//если указатель на начало меньше указателя на конец 
+	//если указатель на начало меньше указателя на конец 
+	if (start <= end) {
 		for (int i = start; i <= end; i++) {
 			cout << storage[i] << " ";
 		}
 		cout << endl;
 	}
-	else {//когда указатель на начало 
-		for (int i = start; i < SIZE; i++)//от начального указателя до конца массива
+	//когда указатель на начало 
+	else {
+		//от начального указателя до конца массива
+		for (int i = start; i < SIZE; i++)
 			cout << storage[i] << " ";
-		for (int i = 0; i <= end; i++)//от начала массива до конца дека
+		//от начала массива до конца дека
+		for (int i = 0; i <= end; i++)
 			cout << storage[i] << " ";
 		cout << endl;
 	}
