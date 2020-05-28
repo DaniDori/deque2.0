@@ -7,17 +7,17 @@ void deck::push_front(int n) {
 		cout << "Deck is full\n"; 
 	}
 	else
-		if (!_size) {
+		if (!_size) {//когда размер = 0
 			storage[start] = n;
 			_size++;
 		}
 		else
-			if (!start) {
+			if (!start) {//добавление второго элемента
 			start = SIZE - 1;
 			storage[start] = n;
 			_size++;
 			}
-			else {
+			else {//добавление каждого следующего
 				start--;
 				storage[start] = n;
 				_size++;
@@ -28,17 +28,17 @@ void deck::push_back(int n) {
 		cout << "Deck is full\n";
 	}
 	else
-		if (!_size) {
+		if (!_size) {//добавление первого элемента
 			storage[end] = n;
 			_size++;
 		}
 		else
-			if (end==SIZE-1) {
+			if (end==SIZE-1) {//добавление второго элемента
 				end = 0;
 				storage[end] = n;
 				_size++;
 			}
-			else {
+			else {//добавление каждого следующего 
 				end++;
 				storage[end] = n;
 				_size++;
@@ -46,23 +46,23 @@ void deck::push_back(int n) {
 }
 int deck::pop_front() {
 	int b;
-	if ((_size != 0) && (start == end)) {
+	if ((_size != 0) && (start == end)) {//когда есть только один элемент
 		b = storage[start];
 		_size--;
 		return b; 
 	}
 	else
-		if (_size == 0) { 
+		if (_size == 0) { //если дек пуст
 			return -1;
 		}
 		else
 		{
 			b = storage[start];
-			if (start == SIZE - 1) { 
+			if (start == SIZE - 1) { //если указатель на начало не может двигаться вперед
 				start = 0;
 				_size--;
 			}
-			else {
+			else {//нормальный случай
 				start++;
 				_size--;
 			}
@@ -71,23 +71,23 @@ int deck::pop_front() {
 }
 int deck::pop_back() {
 	int b;
-	if (_size != 0 && (start == end)) {
+	if (_size != 0 && (start == end)) {//если только один элемент
 		b = storage[end];
 		_size--;
 		return b;
 	}
 	else
-		if (_size == 0) {
+		if (_size == 0) {//если дек пуст
 			return -1;
 		}
 		else
 		{
 			b = storage[end];
-			if (end == 0) {
+			if (end == 0) {//если нельзя двигать указатель конца влево
 				end = SIZE - 1;
 				_size--;
 			}
-			else {
+			else {//нормальный случай
 				end--;
 				_size--;
 			}
@@ -97,22 +97,25 @@ int deck::pop_back() {
 int deck::size() {
 	return _size;
 }
-void deck::clear() {
+void deck::clear() {//приведение указателей в начальное положение без очистки памяти
 	start = end = 0;
 	_size = 0;
 }
 void deck::print() {
+	if (!_size) {
+		cout << "deque is empty\n";
+	}
 	cout << "data:\n";
-	if (start < end) {
+	if (start <= end) {//если указатель на начало меньше указателя на конец 
 		for (int i = start; i <= end; i++) {
 			cout << storage[i] << " ";
 		}
 		cout << endl;
 	}
-	else {
-		for (int i = start; i < SIZE; i++)
+	else {//когда указатель на начало 
+		for (int i = start; i < SIZE; i++)//от начального указателя до конца массива
 			cout << storage[i] << " ";
-		for (int i = 0; i <= end; i++)
+		for (int i = 0; i <= end; i++)//от начала массива до конца дека
 			cout << storage[i] << " ";
 		cout << endl;
 	}

@@ -18,7 +18,7 @@ int main() {
 			if (!n)
 				return 0;
 			switch (n) {
-			case 1:
+			case 1://добавление сзади
 				cout << "Enter data\n";
 				if (!(cin >> x)) {
 					cout << "wrong data!";
@@ -26,7 +26,7 @@ int main() {
 				}
 				d.push_back(x);
 				break;
-			case 2:
+			case 2://добавление спереди
 				cout << "Enter data\n";
 				if (!(cin >> x)) {
 					cout << "wrong data!";
@@ -34,26 +34,26 @@ int main() {
 				}
 				d.push_front(x);
 				break;
-			case 3:
+			case 3://взятие сзади
 				if ((x = d.pop_back())!=-1)
 					cout << "data:" << endl << x << endl;
 				else
 					cout << "deque is empty!\n";
 				break;
-			case 4:
+			case 4://взятие спереди
 				if ((x = d.pop_front()) != -1)
 					cout << "data:" << endl << x << endl;
 				else
 					cout << "deque is empty!\n";
 				break;
-			case 5:
+			case 5://размер дека
 				cout << "deck size = " << d.size() << endl;
 				break;
-			case 6:
+			case 6://очищение дека
 				d.clear();
 				cout << "deck is clear";
 				break;
-			case 7:
+			case 7://печать
 				d.print();
 				break;
 			default:
